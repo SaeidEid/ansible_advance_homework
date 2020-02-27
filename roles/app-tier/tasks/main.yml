@@ -1,2 +1,31 @@
 ---
 # tasks file for app-tier
+- name: install software
+  yum:
+    name:
+    - httpd
+    - tomcat
+    state: latest
+
+- name: create ansible tomcat directory
+  file:
+    path: "{{ app_tier_tomcat_web_root }}"
+    state: directory
+
+- name: copy static index.html to tomcat webroot
+  template:
+    src: index.html.j2
+    dest: "{{ app_tier_tomcat_web_root }}/index.html"
+    mode: u=rw,go=r
+
+- name: start and enable tomcat
+  service:
+    name: tomcat
+    state: started
+    enabled: yes
+
+- name: start and enable apache httpd at boot
+  service:
+    name: httpd
+    state: started
+    enabled: yes

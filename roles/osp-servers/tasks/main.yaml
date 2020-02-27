@@ -1,0 +1,7 @@
+---
+  # Loop over the osp_servers array and call the define_instance task for every instance
+- include_tasks: define-instance.yaml
+  loop: "{{ osp_servers }}"
+  loop_control:
+    loop_var: osp_server
+    label: "{{ osp_server.name }}"

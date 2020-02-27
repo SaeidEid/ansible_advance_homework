@@ -1,2 +1,3 @@
 ---
 # defaults file for osp.servers
+osp_instances: []

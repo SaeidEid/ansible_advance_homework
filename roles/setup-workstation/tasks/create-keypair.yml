@@ -9,25 +9,3 @@
     state: present
     name: ansible_ssh
     public_key_file: "{{ ansible_env.HOME }}/.ssh/test_id_rsa.pub"
-  # register: key
-  # ignore_errors: true
-# This block runs only if previous task failed, and forces the key update
-# - block:
-#   - name: Remove old keypair
-#     os_keypair:
-#         cloud: ospcloud
-#         name: ansible_ssh
-#         public_key: "{{ ansible_env.HOME }}/.ssh/test_id_rsa.pub"
-#         state: absent
-
-#   - name: Add updated keypair
-#     os_keypair:
-#         cloud: ospcloud
-#         name: ansible_ssh
-#         public_key: "{{ ansible_env.HOME }}/.ssh/test_id_rsa.pub"
-#         state: present
-#     register: key
-
-#   when:
-#     - key.failed
-#     - '"present but key hash not the same as offered. Delete key first." in key.msg'

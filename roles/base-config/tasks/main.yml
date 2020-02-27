@@ -1,2 +1,5 @@
 ---
 # tasks file for base-config
+- name: configure yum
+  include_tasks: configure-yum.yaml
+  when: base_config_configure_yum | bool

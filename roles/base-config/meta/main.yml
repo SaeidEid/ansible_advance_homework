@@ -1,7 +1,7 @@
 galaxy_info:
-  author: your name
-  description: your description
-  company: your company (optional)
+  author: Saeid Eid
+  description: Applies basic configuration for the host such as configuring yum
+  company: Cedrus
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value

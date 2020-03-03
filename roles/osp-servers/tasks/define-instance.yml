@@ -7,7 +7,7 @@
     image: "{{ osp_server.image }}"
     meta: "{{ osp_server.meta }}"
     flavor: "{{ osp_server.flavor }}"
-    security_groups: "{{ osp_server.security_groups }}"
+    security_groups: "{{ osp_server.security_group }}"
     key_name: "{{ osp_server.key_name }}"
     nics:
     - net-name: "{{ osp_server.network }}"

@@ -9,8 +9,9 @@
     flavor: "{{ osp_server.flavor }}"
     security_groups: "{{ osp_server.security_group }}"
     key_name: "{{ osp_server.key_name }}"
-    nics:
-    - net-name: "{{ osp_server.network }}"
+    meta: "{{ osp_server.meta }}"
+    # nics:
+    # - net-name: "{{ osp_server.network }}"
 
 - name: Add floating IP to Servers
   os_floating_ip:
@@ -18,7 +19,7 @@
     state: present
     reuse: yes
     server: "{{ osp_server.name }}"
-    network: "{{ osp_server.floating_ip_network }}"
+    # network: "{{ osp_server.floating_ip_network }}"
     wait: true
     timeout: 180
   register: r_os_floating_ip

@@ -10,7 +10,7 @@
       name: "{{ item.public_v4 }}"
       group: "{{ item.metadata.group }}"
       # ansible_ssh_private_key_file: ~/.ssh/openstack.pem
-      ansible_ssh_private_key_file: "/home/saeid-cedrusco.com/.ssh/test_id_rsa"
+      ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/test_id_rsa"
       ansible_ssh_user: "{{ ansible_env.USER }}"
      with_items: "{{result.ansible_facts.openstack_servers}}"
    - name: Add host
@@ -18,6 +18,6 @@
       name: "{{ item.public_v4 }}"
       group: "{{ item.metadata.deployment_name }}"
       # ansible_ssh_private_key_file: ~/.ssh/openstack.pem
-      ansible_ssh_private_key_file: "/home/saeid-cedrusco.com/.ssh/test_id_rsa"
+      ansible_ssh_private_key_file: "{{ ansible_env.HOME }}/.ssh/test_id_rsa"
       ansible_ssh_user: "{{ ansible_env.USER }}"
      with_items: "{{result.ansible_facts.openstack_servers}}"

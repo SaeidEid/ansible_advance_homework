@@ -1,10 +1,13 @@
 ---
 # tasks file for db-tier
+
+# install latest postgres on db server
 - name: install progress
   yum:
     name: postgresql-server
     state: latest
 
+# initialize postgres
 - name: initilize postgres
   command: postgresql-setup initdb
   register: r_postgres_initdb
@@ -14,6 +17,7 @@
   changed_when:
   - r_postgres_initdb.rc == 0
 
+# start and enable postgres on boot
 - name: start and enable postgresql
   service:
     name: postgresql

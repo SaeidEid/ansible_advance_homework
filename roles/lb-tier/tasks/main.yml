@@ -1,5 +1,6 @@
 ---
 # tasks file for lb-tier
+# Install packages on lb-tier
 - name: Install software
   yum:
     name: "{{ _yum_packages }}"

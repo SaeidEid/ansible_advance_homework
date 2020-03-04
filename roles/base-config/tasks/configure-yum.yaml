@@ -1,4 +1,5 @@
 ---
+# Configure yum repo on server
 - name: enable repos
   template:
     src: open_three-tier-app.repo
